@@ -1,7 +1,4 @@
-'use client';
-
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { ArrowLeft, Download, FileText, Sigma, BookOpen } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -42,14 +39,14 @@ export default function SubjectDetailPage({ params }: SubjectDetailPageProps) {
             <ArrowLeft className="w-4 h-4" /> {cls.label} · Subjects
           </Link>
 
-          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+          <div className="animate-fade-in-up stagger-1">
             <div className={`inline-flex w-14 h-14 rounded-2xl bg-gradient-to-br ${s.accent} items-center justify-center mb-5`}>
               {isMath ? <Sigma className="w-6 h-6 text-black" /> : <BookOpen className="w-6 h-6 text-black" />}
             </div>
             <p className="text-xs uppercase tracking-widest text-white/40">{cls.label}</p>
             <h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-gradient mt-1">{s.name}</h1>
             <p className="mt-3 text-white/60 max-w-2xl">{s.description}</p>
-          </motion.div>
+          </div>
 
           {/* Math view */}
           {isMath ? (
@@ -91,12 +88,10 @@ export default function SubjectDetailPage({ params }: SubjectDetailPageProps) {
               <h2 className="text-xl md:text-2xl font-semibold text-white mb-5">Chapter Notes</h2>
               <div className="space-y-3">
                 {content.chapters?.map((ch, i) => (
-                  <motion.div
+                  <div
                     key={ch.id}
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: i * 0.06 }}
-                    className="group relative rounded-2xl overflow-hidden bg-white/[0.03] border border-white/[0.08] backdrop-blur-xl hover:border-white/[0.16] transition p-6"
+                    className="group relative rounded-2xl overflow-hidden glass-card transition p-6 animate-fade-in-up"
+                    style={{ animationDelay: `${i * 0.06}s` }}
                   >
                     <div className="flex items-start gap-5">
                       <span className="text-3xl font-light text-white/30 w-10 shrink-0">{String(i + 1).padStart(2, '0')}</span>
@@ -105,7 +100,7 @@ export default function SubjectDetailPage({ params }: SubjectDetailPageProps) {
                         <p className="text-sm text-white/60 mt-2 leading-relaxed">{ch.summary}</p>
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </div>

@@ -59,17 +59,19 @@ export default function FlashcardViewer({ rawContent }: { rawContent: string }) 
           transition={{ type: 'spring', stiffness: 260, damping: 20 }}
         >
           {/* Front */}
-          <div className="absolute inset-0 backface-hidden bg-white/[0.04] border border-white/[0.1] rounded-3xl p-8 flex flex-col items-center justify-center text-center shadow-xl">
+          <div className="absolute inset-0 backface-hidden glass-panel rounded-3xl p-8 flex flex-col items-center justify-center text-center shadow-xl">
             <h3 className="text-3xl font-medium text-white mb-4 leading-tight">{currentCard.front}</h3>
-            <p className="text-white/30 text-xs uppercase tracking-widest absolute bottom-6">Click to flip</p>
+            <p className="text-white/30 text-xs uppercase tracking-widest absolute bottom-6 flex items-center gap-2">
+              <RotateCcw className="w-3.5 h-3.5" /> Click to flip
+            </p>
           </div>
 
           {/* Back */}
           <div 
-            className="absolute inset-0 backface-hidden bg-emerald-500/10 border border-emerald-500/30 rounded-3xl p-8 flex flex-col items-center justify-center text-center shadow-xl"
+            className="absolute inset-0 backface-hidden glass-panel rounded-3xl p-8 flex flex-col items-center justify-center text-center shadow-xl"
             style={{ transform: 'rotateY(180deg)' }}
           >
-            <p className="text-xl text-emerald-50 font-medium leading-relaxed">{currentCard.back}</p>
+            <p className="text-xl text-violet-50 font-medium leading-relaxed">{currentCard.back}</p>
           </div>
         </motion.div>
       </div>
@@ -107,7 +109,8 @@ export default function FlashcardViewer({ rawContent }: { rawContent: string }) 
         .backface-hidden {
           backface-visibility: hidden;
         }
-      `}</style>
+      `}
+      </style>
     </div>
   );
 }

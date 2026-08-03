@@ -1,7 +1,4 @@
-'use client';
-
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { ArrowRight, ArrowLeft, Atom, Globe2, BookOpen, Sigma, Download, type LucideIcon } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -30,20 +27,20 @@ export default function SubjectsPage({ params }: SubjectsPageProps) {
             <ArrowLeft className="w-4 h-4" /> All classes
           </Link>
 
-          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+          <div className="animate-fade-in-up stagger-1">
             <p className="text-xs uppercase tracking-widest text-white/40">Grade {cls.grade}</p>
             <h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-gradient mt-1">{cls.label}</h1>
             <p className="mt-3 text-white/60 max-w-2xl">Your core subject dashboard. Choose a subject to dive into notes, revision sheets, formulas or practice worksheets.</p>
-          </motion.div>
+          </div>
 
           {/* Subjects grid */}
           <div className="mt-12 grid md:grid-cols-2 gap-4">
             {Object.values(SUBJECTS).map((s, i) => {
               const Icon = ICONS[s.icon];
               return (
-                <motion.div key={s.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: i * 0.08 }}>
+                <div key={s.id} className="animate-fade-in-up" style={{ animationDelay: `${i * 0.08}s` }}>
                   <Link href={`/classes/${classId}/subjects/${s.id}`} className="block group">
-                    <div className="relative rounded-2xl overflow-hidden bg-white/[0.03] border border-white/[0.08] backdrop-blur-xl hover:border-white/[0.2] transition-all duration-500 hover:-translate-y-1 p-6">
+                    <div className="relative rounded-2xl overflow-hidden glass-card transition-all duration-500 hover:-translate-y-1 p-6">
                       <div className={`absolute -top-16 -right-16 w-48 h-48 rounded-full bg-gradient-to-br ${s.accent} opacity-20 blur-3xl group-hover:opacity-40 transition-opacity`} />
                       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
                       <div className="relative">
@@ -59,7 +56,7 @@ export default function SubjectsPage({ params }: SubjectsPageProps) {
                       </div>
                     </div>
                   </Link>
-                </motion.div>
+                </div>
               );
             })}
           </div>

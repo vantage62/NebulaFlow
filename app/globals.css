@@ -24,6 +24,12 @@
     --input: 0 0% 14%;
     --ring: 0 0% 100%;
     --radius: 0.75rem;
+
+    /* Purple accent tokens */
+    --accent-purple: 263 70% 58%;
+    --accent-purple-light: 263 85% 75%;
+    --accent-purple-glow: rgba(139, 92, 246, 0.15);
+    --accent-purple-glow-strong: rgba(139, 92, 246, 0.25);
   }
 
   * { border-color: hsl(var(--border)); }
@@ -32,6 +38,7 @@
 }
 
 @layer utilities {
+  /* ── Base Glass ── */
   .glass {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -44,8 +51,84 @@
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
   }
+
+  /* ── Glass Panel ── */
+  .glass-panel {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.04) 0%,
+      rgba(139, 92, 246, 0.02) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .glass {
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+    .glass-strong {
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .glass-panel {
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .glass-card {
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+  }
+
+  /* ── Glass Card (for tool cards) ── */
+  .glass-card {
+    background: linear-gradient(
+      160deg,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.01) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .glass-card:hover {
+    background: linear-gradient(
+      160deg,
+      rgba(255, 255, 255, 0.04) 0%,
+      rgba(139, 92, 246, 0.02) 100%
+    );
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, 0.2),
+      0 0 30px rgba(139, 92, 246, 0.15);
+  }
+
+  /* ── Glass Card Active (has generated content) ── */
+  .glass-card-active {
+    background: linear-gradient(
+      160deg,
+      rgba(139, 92, 246, 0.08) 0%,
+      rgba(139, 92, 246, 0.03) 100%
+    );
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    box-shadow:
+      inset 0 1px 0 rgba(139, 92, 246, 0.1),
+      0 0 20px rgba(139, 92, 246, 0.05);
+  }
+
   .text-gradient {
     background: linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.6) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .text-gradient-purple {
+    background: linear-gradient(135deg, #c4b5fd 0%, #8b5cf6 50%, #a78bfa 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -62,13 +145,73 @@
     mix-blend-mode: overlay;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/></svg>");
   }
+
+  /* ── No Scrollbar ── */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* ── Purple Glow Button ── */
+  .btn-purple {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3), 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .btn-purple:hover {
+    background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.4), 0 6px 16px rgba(0, 0, 0, 0.3);
+    transform: translateY(-1px);
+  }
+
+  /* ── Liquid Glass Shimmer ── */
+  @keyframes liquid-shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  .liquid-shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(139, 92, 246, 0.05) 25%,
+      rgba(255, 255, 255, 0.08) 50%,
+      rgba(139, 92, 246, 0.05) 75%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: liquid-shimmer 3s ease-in-out infinite;
+  }
+
+  /* ── Pulse glow for generating state ── */
+  @keyframes pulse-purple {
+    0%, 100% { box-shadow: 0 0 15px rgba(139, 92, 246, 0.2); }
+    50% { box-shadow: 0 0 30px rgba(139, 92, 246, 0.4); }
+  }
+  .pulse-purple {
+    animation: pulse-purple 2s ease-in-out infinite;
+  }
+  
+  /* ── Staggered Fade-in Animations ── */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out both;
+  }
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-6 { animation-delay: 0.6s; }
 }
 
-::selection { background: rgba(255,255,255,0.2); color: #fff; }
-::-webkit-scrollbar { width: 8px; height: 8px; }
+::selection { background: rgba(139, 92, 246, 0.3); color: #fff; }
+::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.15); }
 
 /* ── Music Player Volume Slider ── */
 .music-volume-slider {
@@ -103,4 +246,16 @@
   background: rgba(255, 255, 255, 0.1);
   border-radius: 999px;
   height: 4px;
+}
+
+/* ── Mind Map Custom Styles ── */
+.mindmap-node {
+  transition: all 0.2s ease;
+}
+.mindmap-node:hover {
+  filter: brightness(1.15);
+  cursor: pointer;
+}
+.mindmap-connector {
+  transition: stroke-opacity 0.2s ease;
 }

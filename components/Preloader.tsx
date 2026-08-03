@@ -60,7 +60,7 @@ export default function Preloader() {
                 initial={{ width: '0%' }}
                 animate={{ width: '100%' }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="h-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.8)]"
+                className="h-full bg-violet-400 shadow-[0_0_10px_rgba(167,139,250,0.8)]"
               />
             </div>
           </motion.div>

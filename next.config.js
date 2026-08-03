@@ -4,8 +4,10 @@ const nextConfig = {
     // shadcn/ui auto-generated components use untyped forwardRef; safe to skip
     ignoreBuildErrors: true,
   },
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'framer-motion', 'lodash', 'react-markdown'],
+  },
   images: {
-    unoptimized: true,
     remotePatterns: [
       { protocol: 'https', hostname: 'avatars.githubusercontent.com', pathname: '/**' },
     ],

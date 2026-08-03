@@ -1,18 +1,13 @@
 'use client';
 
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import { Mail, Sparkles, BookOpen } from 'lucide-react';
 
 export default function Footer() {
   return (
     <footer id="contact" className="relative mt-32 px-4 pb-8">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="max-w-6xl mx-auto rounded-3xl overflow-hidden bg-white/[0.03] border border-white/[0.08] backdrop-blur-2xl"
+      <div
+        className="max-w-6xl mx-auto rounded-3xl overflow-hidden glass-panel"
       >
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
         <div className="p-10 md:p-14">
@@ -58,10 +53,10 @@ export default function Footer() {
 
           <div className="mt-12 pt-6 border-t border-white/[0.06] flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/40">
             <p>© {new Date().getFullYear()} NebulaFlow — All rights reserved.</p>
-            <p className="tracking-wide">Designed with obsession · Rendered with WebGL</p>
+            <p className="tracking-wide">Designed with obsession</p>
           </div>
         </div>
-      </motion.div>
+      </div>
     </footer>
   );
 }

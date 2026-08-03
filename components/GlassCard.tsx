@@ -1,10 +1,9 @@
 'use client';
 
 import { type ReactNode } from 'react';
-import { motion, type HTMLMotionProps } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
-interface GlassCardProps extends Omit<HTMLMotionProps<'div'>, 'children'> {
+interface GlassCardProps extends React.HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   className?: string;
   hover?: boolean;
@@ -13,22 +12,17 @@ interface GlassCardProps extends Omit<HTMLMotionProps<'div'>, 'children'> {
 
 export default function GlassCard({ children, className = '', hover = true, delay = 0, ...props }: GlassCardProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={hover ? { y: -4, transition: { duration: 0.2 } } : undefined}
+    <div
       className={cn(
-        'relative rounded-2xl overflow-hidden',
-        'bg-white/[0.03] border border-white/[0.08]',
-        'backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]',
-        hover && 'hover:border-white/[0.15] hover:bg-white/[0.05] transition-colors duration-300',
+        'relative rounded-2xl overflow-hidden glass-panel animate-fade-in-up',
+        hover && 'hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(139,92,246,0.15)] hover:border-white/[0.15] transition-all duration-300',
         className
       )}
+      style={{ animationDelay: `${delay}s`, ...props.style }}
       {...props}
     >
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
       {children}
-    </motion.div>
+    </div>
   );
 }

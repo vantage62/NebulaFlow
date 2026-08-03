@@ -16,6 +16,7 @@ import {
   Radio,
   ListMusic,
   ChevronRight,
+  GripHorizontal,
 } from 'lucide-react';
 
 /* ------------------------------------------------------------------ */
@@ -48,26 +49,26 @@ const AMBIENT_TRACKS: Track[] = [
 ];
 
 const LOCAL_TRACKS: Track[] = [
-  { name: 'Again', artist: 'Masaru Yokoyama', color: '#ef4444', url: '/tracks/Again.mp3' },
-  { name: 'Back In Black', artist: 'AC/DC', color: '#ef4444', url: '/tracks/Back In Black.mp3' },
-  { name: 'Cool For The Summer', artist: 'Demi Lovato', color: '#ef4444', url: '/tracks/Cool For The Summer.mp3' },
-  { name: 'Green Green Grass Sped Up', artist: 'George Ezra', color: '#ef4444', url: '/tracks/Green Green Grass Sped Up.mp3' },
-  { name: 'Harvey', artist: 'Her\'s ', color: '#ef4444', url: '/tracks/Harvey.mp3' },
-  { name: 'Hotel Room', artist: 'Ax and the Hatchetmen', color: '#ef4444', url: '/tracks/Hotel Room.mp3' },
-  { name: 'Introduction and Rondo Capriccioso Saint Saëns', artist: 'Saint Saëns', color: '#ef4444', url: '/tracks/Introduction and Rondo Capriccioso Saint Saëns Shigatsu Wa Kimi No Uso Sheets.mp3' },
-  { name: 'Kimi Ga Iru', artist: 'Masaru Yokoyama', color: '#ef4444', url: '/tracks/Kimi Ga Iru.mp3' },
-  { name: 'Kimiwa Wasurerareruno', artist: 'Masaru Yokoyama', color: '#ef4444', url: '/tracks/Kimiwa Wasurerareruno.mp3' },
-  { name: 'Let It Happen', artist: 'Tame Impala', color: '#ef4444', url: '/tracks/Let It Happen.mp3' },
-  { name: 'Love You Like A Love Song Slowed Reverb', artist: 'Selena Gomez', color: '#ef4444', url: '/tracks/Love You Like A Love Song Slowed Reverb.mp3' },
-  { name: 'Set Fire to the Rain', artist: 'Adele', color: '#ef4444', url: '/tracks/Set Fire to the Rain.mp3' },
-  { name: 'Skyfall', artist: 'Adele', color: '#ef4444', url: '/tracks/Skyfall.mp3' },
-  { name: 'Solo feat.Demi Lovato', artist: 'Clean Bandit', color: '#ef4444', url: '/tracks/Solo feat.Demi Lovato.mp3' },
-  { name: 'Stress Relief', artist: 'late night drive home', color: '#ef4444', url: '/tracks/Stress Relief.mp3' },
-  { name: 'Tek It Sped Up', artist: 'Cafune', color: '#ef4444', url: '/tracks/Tek It Sped Up.mp3' },
-  { name: 'The Less I Know The Better', artist: 'Tame Impala', color: '#ef4444', url: '/tracks/The Less I Know The Better.mp3' },
-  { name: 'Uso To Honto', artist: 'Masaru Yokoyama', color: '#ef4444', url: '/tracks/Uso To Honto.mp3' },
-  { name: 'Watashino Uso', artist: 'Masaru Yokoyama', color: '#ef4444', url: '/tracks/Watashino Uso.mp3' },
-  { name: 'Chopin Ballade No 1 in G Minor', artist: 'Frederic Chopin', color: '#ef4444', url: '/tracks/Your Lie In April Last Performance Full Version Ballade No 1 in G Minor.mp3' },
+  { name: 'Again', artist: 'Masaru Yokoyama', color: '#a855f7', url: '/tracks/Again.mp3' },
+  { name: 'Back In Black', artist: 'AC/DC', color: '#a855f7', url: '/tracks/Back In Black.mp3' },
+  { name: 'Cool For The Summer', artist: 'Demi Lovato', color: '#a855f7', url: '/tracks/Cool For The Summer.mp3' },
+  { name: 'Green Green Grass Sped Up', artist: 'George Ezra', color: '#a855f7', url: '/tracks/Green Green Grass Sped Up.mp3' },
+  { name: 'Harvey', artist: 'Her\'s ', color: '#a855f7', url: '/tracks/Harvey.mp3' },
+  { name: 'Hotel Room', artist: 'Ax and the Hatchetmen', color: '#a855f7', url: '/tracks/Hotel Room.mp3' },
+  { name: 'Introduction and Rondo Capriccioso Saint Saëns', artist: 'Saint Saëns', color: '#a855f7', url: '/tracks/Introduction and Rondo Capriccioso Saint Saëns Shigatsu Wa Kimi No Uso Sheets.mp3' },
+  { name: 'Kimi Ga Iru', artist: 'Masaru Yokoyama', color: '#a855f7', url: '/tracks/Kimi Ga Iru.mp3' },
+  { name: 'Kimiwa Wasurerareruno', artist: 'Masaru Yokoyama', color: '#a855f7', url: '/tracks/Kimiwa Wasurerareruno.mp3' },
+  { name: 'Let It Happen', artist: 'Tame Impala', color: '#a855f7', url: '/tracks/Let It Happen.mp3' },
+  { name: 'Love You Like A Love Song Slowed Reverb', artist: 'Selena Gomez', color: '#a855f7', url: '/tracks/Love You Like A Love Song Slowed Reverb.mp3' },
+  { name: 'Set Fire to the Rain', artist: 'Adele', color: '#a855f7', url: '/tracks/Set Fire to the Rain.mp3' },
+  { name: 'Skyfall', artist: 'Adele', color: '#a855f7', url: '/tracks/Skyfall.mp3' },
+  { name: 'Solo feat.Demi Lovato', artist: 'Clean Bandit', color: '#a855f7', url: '/tracks/Solo feat.Demi Lovato.mp3' },
+  { name: 'Stress Relief', artist: 'late night drive home', color: '#a855f7', url: '/tracks/Stress Relief.mp3' },
+  { name: 'Tek It Sped Up', artist: 'Cafune', color: '#a855f7', url: '/tracks/Tek It Sped Up.mp3' },
+  { name: 'The Less I Know The Better', artist: 'Tame Impala', color: '#a855f7', url: '/tracks/The Less I Know The Better.mp3' },
+  { name: 'Uso To Honto', artist: 'Masaru Yokoyama', color: '#a855f7', url: '/tracks/Uso To Honto.mp3' },
+  { name: 'Watashino Uso', artist: 'Masaru Yokoyama', color: '#a855f7', url: '/tracks/Watashino Uso.mp3' },
+  { name: 'Chopin Ballade No 1 in G Minor', artist: 'Frederic Chopin', color: '#a855f7', url: '/tracks/Your Lie In April Last Performance Full Version Ballade No 1 in G Minor.mp3' },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -497,13 +498,17 @@ export default function MusicPlayerBar() {
     }
 
     if (mode === 'local') {
-      let time = 0;
-      const tick = () => {
-        time += 0.1;
-        const fakeData = new Array(32).fill(0).map((_, i) => {
-          return 40 + Math.sin(time + i * 0.5) * 30 + Math.random() * 40;
-        });
-        setVisualizerData(fakeData);
+      let timeOffset = 0;
+      let lastUpdate = 0;
+      const tick = (time: number) => {
+        if (time - lastUpdate > 66) { // throttle to ~15fps
+          timeOffset += 0.1;
+          const fakeData = new Array(32).fill(0).map((_, i) => {
+            return 40 + Math.sin(timeOffset + i * 0.5) * 30 + Math.random() * 40;
+          });
+          setVisualizerData(fakeData);
+          lastUpdate = time;
+        }
         rafRef.current = requestAnimationFrame(tick);
       };
       rafRef.current = requestAnimationFrame(tick);
@@ -514,9 +519,13 @@ export default function MusicPlayerBar() {
     const analyser = analyserRef.current;
     const dataArr = new Uint8Array(analyser.frequencyBinCount);
 
-    const tick = () => {
-      analyser.getByteFrequencyData(dataArr);
-      setVisualizerData(Array.from(dataArr));
+    let lastUpdate = 0;
+    const tick = (time: number) => {
+      if (time - lastUpdate > 66) { // throttle to ~15fps
+        analyser.getByteFrequencyData(dataArr);
+        setVisualizerData(Array.from(dataArr));
+        lastUpdate = time;
+      }
       rafRef.current = requestAnimationFrame(tick);
     };
     rafRef.current = requestAnimationFrame(tick);
@@ -557,57 +566,61 @@ export default function MusicPlayerBar() {
   /* ====================================================================== */
 
   return (
-    <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40" id="music-player">
-      <AnimatePresence mode="wait">
-        {isMinimized ? (
-          /* ─────────── MINIMIZED PILL ─────────── */
-          <motion.button
-            key="pill"
-            initial={{ opacity: 0, y: 20, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            transition={{ duration: 0.3 }}
-            onClick={() => setIsMinimized(false)}
-            className="group relative flex items-center gap-3 px-4 py-2.5 rounded-full
-              bg-black/60 backdrop-blur-2xl border border-white/[0.1]
-              hover:border-white/[0.2] hover:bg-black/70 transition-all
-              shadow-[0_8px_32px_rgba(0,0,0,0.4)]
-              cursor-pointer"
-          >
-            {/* Glow ring */}
-            <div
-              className="absolute inset-0 rounded-full opacity-30 group-hover:opacity-50 transition-opacity blur-xl -z-10"
-              style={{ background: `radial-gradient(circle, ${currentTrack.color}40, transparent)` }}
-            />
-
-            {/* Mini visualizer */}
-            <div className="flex items-center gap-[2px] h-4">
-              {bars.slice(0, 5).map((v, i) => (
-                <motion.div
-                  key={i}
-                  className="w-[3px] rounded-full"
-                  style={{ background: currentTrack.color }}
-                  animate={{ height: isPlaying ? Math.max(4, (v / 255) * 16) : 4 }}
-                  transition={{ duration: 0.1 }}
+    <div className="fixed bottom-6 left-0 w-full pointer-events-none z-40 flex justify-center" id="music-player-wrapper">
+      <motion.div
+        className="pointer-events-auto"
+        id="music-player"
+      >
+        <AnimatePresence mode="wait">
+          {isMinimized ? (
+            /* ─────────── MINIMIZED PILL ─────────── */
+            <motion.div
+              key="pill"
+              initial={{ opacity: 0, y: 20, scale: 0.9 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 10, scale: 0.95 }}
+              transition={{ duration: 0.3 }}
+              className="group relative flex items-center px-3 py-2 rounded-full
+                glass-panel
+                hover:border-white/[0.2] transition-all
+                shadow-[0_8px_32px_rgba(0,0,0,0.4)]
+                select-none"
+              onClick={() => setIsMinimized(false)}
+            >
+              <div className="flex items-center gap-2 cursor-pointer">
+                {/* Glow ring */}
+                <div
+                  className="absolute inset-0 rounded-full opacity-30 group-hover:opacity-50 transition-opacity blur-xl -z-10"
+                  style={{ background: `radial-gradient(circle, ${currentTrack.color}40, transparent)` }}
                 />
-              ))}
-            </div>
 
-            <span className="text-white/70 text-xs font-medium max-w-[120px] truncate">
-              {isPlaying ? currentTrack.name : 'Music'}
-            </span>
+                {/* Mini visualizer */}
+                <div className="flex items-center gap-[2px] h-4">
+                  {bars.slice(0, 5).map((v, i) => (
+                    <motion.div
+                      key={i}
+                      className="w-[3px] rounded-full"
+                      style={{ background: currentTrack.color }}
+                      animate={{ height: isPlaying ? Math.max(4, (v / 255) * 16) : 4 }}
+                      transition={{ duration: 0.1 }}
+                    />
+                  ))}
+                </div>
 
-            {/* Play indicator */}
-            {isPlaying && (
-              <span
-                className="w-1.5 h-1.5 rounded-full animate-pulse"
-                style={{ backgroundColor: currentTrack.color }}
-              />
-            )}
+                <span className="text-white/70 text-[11px] font-medium max-w-[100px] truncate">
+                  {isPlaying ? currentTrack.name : 'Music'}
+                </span>
 
-            <Maximize2 className="w-3 h-3 text-white/40 group-hover:text-white/70 transition-colors" />
-          </motion.button>
-        ) : (
+                {/* Play indicator */}
+                {isPlaying && (
+                  <span
+                    className="w-1.5 h-1.5 rounded-full animate-pulse"
+                    style={{ backgroundColor: currentTrack.color }}
+                  />
+                )}
+              </div>
+            </motion.div>
+          ) : (
           /* ─────────── EXPANDED BAR ─────────── */
           <motion.div
             key="bar"
@@ -615,18 +628,20 @@ export default function MusicPlayerBar() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex items-center gap-4 px-5 py-3 rounded-2xl
-              bg-black/70 backdrop-blur-2xl border border-white/[0.1]
+            className="relative flex items-center gap-3.5 px-4 py-3 rounded-2xl
+              glass-panel
               shadow-[0_8px_40px_rgba(0,0,0,0.5)]
-              w-[min(580px,calc(100vw-2rem))]"
+              w-[min(620px,calc(100vw-2rem))]"
           >
+
+
             {/* Accent glow */}
             <div
-              className="absolute inset-0 rounded-2xl opacity-20 blur-2xl -z-10 transition-colors duration-700"
+              className="absolute inset-0 rounded-2xl opacity-20 blur-2xl -z-10 transition-colors duration-700 pointer-events-none"
               style={{ background: `radial-gradient(ellipse at center, ${currentTrack.color}30, transparent 70%)` }}
             />
             {/* Top highlight line */}
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent rounded-t-2xl" />
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent rounded-t-2xl pointer-events-none" />
 
             {/* PLAYLIST MENU TOGGLE */}
             <div className="relative">
@@ -650,7 +665,7 @@ export default function MusicPlayerBar() {
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
                     transition={{ duration: 0.2 }}
                     className="absolute bottom-[calc(100%+16px)] left-0 w-64 p-3 rounded-2xl
-                      bg-black/80 backdrop-blur-3xl border border-white/[0.1]
+                      glass-panel
                       shadow-[0_20px_60px_rgba(0,0,0,0.6)] z-50 overflow-hidden"
                   >
                     <div className="space-y-4 max-h-[300px] overflow-y-auto pr-1 custom-scrollbar">
@@ -896,6 +911,7 @@ export default function MusicPlayerBar() {
           autoPlay={isPlaying}
         />
       )}
+    </motion.div>
     </div>
   );
 }

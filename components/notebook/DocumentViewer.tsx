@@ -58,11 +58,8 @@ export default function DocumentViewer({ doc }: { doc: NotebookDocument }) {
 
       // Cleanup codeblocks for JSON and Mermaid
       let cleanText = resultText.trim();
-      if ((type === 'flashcards' || type === 'quiz') && cleanText.startsWith('```')) {
-        cleanText = cleanText.replace(/^```json\n/, '').replace(/\n```$/, '');
-      }
-      if (type === 'mindmap' && cleanText.startsWith('```')) {
-        cleanText = cleanText.replace(/^```mermaid\n/, '').replace(/\n```$/, '');
+      if ((type === 'flashcards' || type === 'quiz' || type === 'mindmap') && cleanText.startsWith('```')) {
+        cleanText = cleanText.replace(/^```(?:json|mermaid)?\n/, '').replace(/\n```$/, '');
       }
 
       const newArtifact: NotebookArtifact = {
@@ -96,7 +93,7 @@ export default function DocumentViewer({ doc }: { doc: NotebookDocument }) {
             onClick={() => setActiveTab(tab.id)}
             className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors whitespace-nowrap ${
               activeTab === tab.id 
-                ? 'bg-white/10 text-white' 
+                ? 'bg-violet-500/10 text-violet-200 border border-violet-500/20' 
                 : 'text-white/50 hover:bg-white/[0.05] hover:text-white/80'
             }`}
           >
@@ -109,7 +106,7 @@ export default function DocumentViewer({ doc }: { doc: NotebookDocument }) {
       {/* Content Area */}
       <div className="flex-1 overflow-y-auto p-6 relative">
         {activeTab === 'source' ? (
-          <div className="max-w-3xl mx-auto prose prose-invert prose-emerald">
+          <div className="max-w-3xl mx-auto prose prose-invert prose-violet">
             <h2 className="text-2xl font-semibold text-white mb-4">{doc.name}</h2>
             <div className="text-white/70 whitespace-pre-wrap font-mono text-sm">
               {doc.text}
@@ -119,7 +116,7 @@ export default function DocumentViewer({ doc }: { doc: NotebookDocument }) {
           <div className="h-full flex flex-col">
             {!activeArtifact ? (
               <div className="flex-1 flex flex-col items-center justify-center text-center">
-                <Sparkles className="w-12 h-12 text-white/20 mb-4" />
+                <Sparkles className="w-12 h-12 text-violet-400/30 mb-4" />
                 <h3 className="text-lg font-medium text-white mb-2">No {TABS.find(t => t.id === activeTab)?.label} yet</h3>
                 <p className="text-sm text-white/40 mb-6 max-w-md">
                   Use the power of AI to instantly generate comprehensive study materials based on the source document.
@@ -127,7 +124,7 @@ export default function DocumentViewer({ doc }: { doc: NotebookDocument }) {
                 <button
                   onClick={() => handleGenerate(activeTab as ArtifactType)}
                   disabled={isGenerating}
-                  className="flex items-center gap-2 px-6 py-3 bg-emerald-500 text-black font-medium rounded-xl hover:bg-emerald-400 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex items-center gap-2 px-6 py-3 btn-purple rounded-xl transition disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isGenerating ? <Loader2 className="w-5 h-5 animate-spin" /> : <Sparkles className="w-5 h-5" />}
                   {isGenerating ? 'Generating...' : `Generate ${TABS.find(t => t.id === activeTab)?.label}`}
@@ -147,7 +144,7 @@ export default function DocumentViewer({ doc }: { doc: NotebookDocument }) {
                 </div>
 
                 {(activeTab === 'summary' || activeTab === 'notes') && (
-                  <div className="prose prose-invert prose-emerald max-w-none">
+                  <div className="prose prose-invert prose-violet max-w-none">
                     <ReactMarkdown>{activeArtifact.content}</ReactMarkdown>
                   </div>
                 )}

@@ -47,7 +47,7 @@ export interface NcertBook {
 
 export const CLASSES: ClassInfo[] = [
   { id: '6', label: 'Class 6', grade: 'VI', tint: 'from-sky-400/20 to-cyan-500/10' },
-  { id: '7', label: 'Class 7', grade: 'VII', tint: 'from-emerald-400/20 to-teal-500/10' },
+  { id: '7', label: 'Class 7', grade: 'VII', tint: 'from-violet-400/20 to-purple-500/10' },
   { id: '8', label: 'Class 8', grade: 'VIII', tint: 'from-fuchsia-400/20 to-purple-500/10' },
   { id: '9', label: 'Class 9', grade: 'IX', tint: 'from-amber-400/20 to-orange-500/10' },
   { id: '10', label: 'Class 10', grade: 'X', tint: 'from-rose-400/20 to-pink-500/10' },
@@ -70,7 +70,7 @@ export const SUBJECTS: Record<string, Subject> = {
     tagline: 'High-yield revision notes',
     description: 'Scannable revision cards for History, Geography, Civics and Economics.',
     icon: 'Globe2',
-    accent: 'from-emerald-400 to-teal-500',
+    accent: 'from-violet-400 to-purple-500',
   },
   english: {
     id: 'english',

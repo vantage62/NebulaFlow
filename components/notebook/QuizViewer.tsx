@@ -57,8 +57,8 @@ export default function QuizViewer({ rawContent }: { rawContent: string }) {
     const percentage = Math.round((score / questions.length) * 100);
     return (
       <div className="flex flex-col items-center justify-center max-w-xl mx-auto w-full py-16 text-center">
-        <div className="w-24 h-24 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mb-6">
-          <span className="text-3xl font-bold text-emerald-400">{percentage}%</span>
+        <div className="w-24 h-24 rounded-full bg-violet-500/10 border border-violet-500/30 flex items-center justify-center mb-6">
+          <span className="text-3xl font-bold text-violet-400">{percentage}%</span>
         </div>
         <h3 className="text-2xl font-semibold text-white mb-2">Quiz Complete!</h3>
         <p className="text-white/60 mb-8">You scored {score} out of {questions.length}.</p>
@@ -81,7 +81,7 @@ export default function QuizViewer({ rawContent }: { rawContent: string }) {
         <span className="text-white/50 text-sm font-medium tracking-widest uppercase">
           Question {currentIndex + 1} of {questions.length}
         </span>
-        <span className="text-emerald-400 text-sm font-medium">
+        <span className="text-violet-400 text-sm font-medium">
           Score: {score}
         </span>
       </div>
@@ -98,8 +98,8 @@ export default function QuizViewer({ rawContent }: { rawContent: string }) {
 
             if (selectedOption !== null) {
               if (idx === currentQ.answer) {
-                stateClass = 'bg-emerald-500/10 border-emerald-500/30 text-emerald-50';
-                icon = <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />;
+                stateClass = 'bg-violet-500/10 border-violet-500/30 text-violet-50';
+                icon = <CheckCircle2 className="w-5 h-5 text-violet-400 shrink-0" />;
               } else if (idx === selectedOption) {
                 stateClass = 'bg-red-500/10 border-red-500/30 text-red-100';
                 icon = <XCircle className="w-5 h-5 text-red-400 shrink-0" />;

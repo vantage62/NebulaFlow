@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, Menu, X, Download, Zap, Layers, GraduationCap, Mail, BookOpen, type LucideIcon } from 'lucide-react';
 
 interface NavLink {
@@ -58,16 +57,13 @@ export default function Navbar() {
 
   return (
     <>
-      <motion.header
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="fixed top-0 inset-x-0 z-50 flex justify-center pt-4 px-4"
+      <header
+        className="fixed top-0 inset-x-0 z-50 flex justify-center pt-4 px-4 animate-fade-in-up"
       >
         <nav
           className={`w-full max-w-6xl flex items-center justify-between px-5 py-3 rounded-full transition-all duration-300 ${scrolled
-              ? 'bg-black/60 backdrop-blur-2xl border border-white/[0.1] shadow-lg shadow-black/20'
-              : 'bg-black/40 backdrop-blur-xl border border-white/[0.08]'
+              ? 'glass-panel shadow-lg shadow-black/20'
+              : 'glass-panel opacity-95'
             }`}
         >
           <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center group relative w-56 h-8">
@@ -123,49 +119,34 @@ export default function Navbar() {
             </button>
           </div>
         </nav>
-      </motion.header>
+      </header>
 
       {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-40 lg:hidden"
-          >
-            {/* Backdrop */}
-            <div
-              className="absolute inset-0 bg-black/80 backdrop-blur-md"
-              onClick={() => setMobileOpen(false)}
-            />
+      {mobileOpen && (
+        <div className="fixed inset-0 z-40 lg:hidden animate-fade-in">
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-black/80 backdrop-blur-md"
+            onClick={() => setMobileOpen(false)}
+          />
 
-            {/* Menu Panel */}
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3, ease: 'easeOut' }}
-              className="relative mt-20 mx-4"
-            >
-              <div className="rounded-2xl bg-black/90 border border-white/[0.1] backdrop-blur-2xl overflow-hidden shadow-2xl">
+          {/* Menu Panel */}
+          <div className="relative mt-20 mx-4 animate-fade-in-up">
+              <div className="rounded-2xl glass-panel overflow-hidden shadow-2xl">
                 <div className="p-2">
                   {mobileMenuItems.map((item, i) => {
                     const Icon = item.icon;
                     const inner = (
-                      <motion.div
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: i * 0.05 }}
+                      <div
                         className="flex items-center gap-3 px-4 py-3.5 rounded-xl text-white/70 hover:text-white hover:bg-white/[0.06] transition-all group"
+                        style={{ transitionDelay: `${i * 0.05}s` }}
                         onClick={() => setMobileOpen(false)}
                       >
                         <div className="w-8 h-8 rounded-lg bg-white/[0.06] border border-white/[0.08] flex items-center justify-center group-hover:bg-white/[0.1] transition">
                           <Icon className="w-4 h-4" />
                         </div>
                         <span className="text-sm font-medium">{item.label}</span>
-                      </motion.div>
+                      </div>
                     );
 
                     return item.href.startsWith('#') ? (
@@ -188,10 +169,9 @@ export default function Navbar() {
                   </Link>
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </div>
+        </div>
+      )}
     </>
   );
 }

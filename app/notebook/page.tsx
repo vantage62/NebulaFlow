@@ -2,10 +2,9 @@
 
 import dynamic from 'next/dynamic';
 import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 
 // Dynamic import with SSR disabled to prevent server-side crashes
-// from browser-only APIs (localStorage, crypto, pdfjs-dist, mermaid)
+// from browser-only APIs (localStorage, crypto, pdfjs-dist)
 const NotebookClient = dynamic(() => import('@/components/notebook/NotebookClient'), {
   ssr: false,
   loading: () => (
@@ -17,10 +16,9 @@ const NotebookClient = dynamic(() => import('@/components/notebook/NotebookClien
 
 export default function NotebookPage() {
   return (
-    <main className="relative min-h-screen flex flex-col">
+    <main className="relative h-screen flex flex-col overflow-hidden">
       <Navbar />
       <NotebookClient />
-      <Footer />
     </main>
   );
 }
